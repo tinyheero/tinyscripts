@@ -9,7 +9,7 @@ This is a R script focused on generate exon raw counts and expression values. It
 ```r
 library("GenomicFeatures")
 txdb <- makeTxDbFromBiomart(biomart = "ENSEMBL_MART_ENSEMBL", 
-                            dataset = "hsapiens_gene_ensembl" )
+                            dataset = "hsapiens_gene_ensembl")
 saveDb(txdb, "~/hsapiens_txdb.sqlite")
 ```
 

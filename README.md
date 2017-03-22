@@ -8,8 +8,9 @@ This is a R script focused on generate exon raw counts and expression values. It
 
 ```r
 library("GenomicFeatures")
-txdb <- makeTxDbFromBiomart(dataset = "hsapiens_gene_ensembl" )
-saveFeatures(txdb, "~/hsapiens_txdb.sqlite")
+txdb <- makeTxDbFromBiomart(biomart = "ENSEMBL_MART_ENSEMBL", 
+                            dataset = "hsapiens_gene_ensembl" )
+saveDb(txdb, "~/hsapiens_txdb.sqlite")
 ```
 
 This will take some time depending on what database you are trying to download. For reasons, not completely known to me, the `.sqlite` file has to be saved in your home directory (hence why the example saves it to `~/hsapiens_txdb.sqlite`. Once this has been generated, you can use it as input into the `summarize_rnaseq_reads_by_exon.R` script. For example:

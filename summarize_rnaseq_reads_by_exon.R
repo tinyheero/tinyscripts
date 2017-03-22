@@ -29,10 +29,6 @@ if (FALSE){
 	arguments <- parser$parse_args( c( txdbFile, bamFile, outFile, opt ) )
 }
 
-#txdb <- makeTranscriptDbFromBiomart( biomart = 'ensembl', dataset = 'hsapiens_gene_ensembl' )
-#saveFeatures(txdb, '~/ensg69.biomart.13012013.sqlite')
-#txdb <- makeTranscriptDbFromUCSC(genome = 'hg19', tablename = 'ensGene')
-
 print(paste("Loading", arguments$txdbFile))
 txdb <- loadDb(arguments$txdbFile)
 

@@ -7,13 +7,14 @@ Stores general (tiny) scripts that have not been packages up yet.
 This is a R script focused on generate exon raw counts and expression values. It requires as input a transcript database .sqlite file. This can be generated from the `GenomicFeatures::makeTxDbFromBiomart()` function. For example:
 
 ```r
+library("GenomicFeatures")
 txdb <- makeTxDbFromBiomart(dataset = "hsapiens_gene_ensembl" )
 saveFeatures(txdb, "~/hsapiens_txdb.sqlite")
 ```
 
-This can be then be used as input into the `summarize_rnaseq_reads_by_exon.R` script. For example:
+This will take some time depending on what database you are trying to download. For reasons, not completely known to me, the `.sqlite` file has to be saved in your home directory (hence why the example saves it to `~/hsapiens_txdb.sqlite`. Once this has been generated, you can use it as input into the `summarize_rnaseq_reads_by_exon.R` script. For example:
 
-```
+```bash
 Rscript summarize_rnaseq_reads_by_exon.R \
   ~/hsapiens_txdb.sqlite \
   /path/to/bam \
